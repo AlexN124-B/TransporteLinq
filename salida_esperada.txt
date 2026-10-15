@@ -1,0 +1,388 @@
+=========== BLOQUE 1: FILTRADO Y ORDENACIÓN ===========
+
+--- 1.1 Paradas de la zona 2 ---
+(10 elementos)
+  [14] Centro Comercial (zona 2)
+  [7] Hospital (zona 2)
+  [17] Instituto (zona 2)
+  [25] Juzgados (zona 2)
+  [9] Museo (zona 2)
+  [10] Parque Norte (zona 2)
+  [24] Parque Sur (zona 2)
+  [21] Piscina (zona 2)
+  [15] Puerto (zona 2)
+  [6] Universidad (zona 2)
+
+--- 1.2 Vehículos por capacidad ---
+(7 elementos)
+  [6] 6049-FGH (capacidad 25)
+  [5] 5016-BCD (capacidad 30)
+  [1] 1021-KLM (capacidad 40)
+  [7] 7063-JKL (capacidad 45)
+  [3] 3057-RST (capacidad 50)
+  [2] 2034-NPR (capacidad 60)
+  [4] 4082-VWX (capacidad 80)
+
+--- 1.3 Cinco paradas con Id más alto ---
+(5 elementos)
+  [25] Juzgados (zona 2)
+  [24] Parque Sur (zona 2)
+  [23] Barrio Viejo (zona 1)
+  [22] Mirador (zona 3)
+  [21] Piscina (zona 2)
+
+--- 1.4 Nombres de línea alfabéticos ---
+(6 elementos)
+  Aeropuerto Express
+  Cinturón
+  Circular Centro
+  Costera
+  Lanzadera Estadio
+  Norte-Hospital
+
+--- 1.5 Viajes del 2026-10-07 ---
+(22 elementos)
+  Viaje 058: L3 2026-10-07 17:30 - 49 pasajeros
+  Viaje 059: L4 2026-10-07 17:30 - 49 pasajeros
+  Viaje 064: L3 2026-10-07 21:00 - 44 pasajeros
+  Viaje 053: L3 2026-10-07 12:00 - 42 pasajeros
+  Viaje 046: L2 2026-10-07 07:30 - 40 pasajeros
+  Viaje 061: L1 2026-10-07 18:15 - 40 pasajeros
+  Viaje 048: L4 2026-10-07 07:30 - 39 pasajeros
+  Viaje 052: L2 2026-10-07 12:00 - 39 pasajeros
+  Viaje 047: L3 2026-10-07 07:30 - 38 pasajeros
+  Viaje 051: L1 2026-10-07 12:00 - 38 pasajeros
+  Viaje 063: L2 2026-10-07 21:00 - 36 pasajeros
+  Viaje 062: L1 2026-10-07 21:00 - 35 pasajeros
+  Viaje 050: L1 2026-10-07 08:15 - 34 pasajeros
+  Viaje 065: L4 2026-10-07 21:00 - 33 pasajeros
+  Viaje 057: L2 2026-10-07 17:30 - 30 pasajeros
+  Viaje 056: L1 2026-10-07 17:30 - 29 pasajeros
+  Viaje 045: L1 2026-10-07 07:30 - 27 pasajeros
+  Viaje 054: L4 2026-10-07 12:00 - 22 pasajeros
+  Viaje 049: L5 2026-10-07 07:30 - 10 pasajeros
+  Viaje 055: L5 2026-10-07 12:00 - 8 pasajeros
+  Viaje 060: L5 2026-10-07 17:30 - 5 pasajeros
+  Viaje 066: L5 2026-10-07 21:00 - 0 pasajeros
+
+=========== BLOQUE 2: PROYECCIONES Y APLANAMIENTO ===========
+
+--- 2.1 Paradas de la línea 3 ---
+(7 elementos)
+  Aeropuerto
+  Terminal de Autobuses
+  Estación Central
+  Plaza Mayor
+  Centro Comercial
+  Polígono Industrial
+  Estadio
+
+--- 2.2 Paradas con servicio (sin repetir) ---
+(23 elementos)
+  Aeropuerto
+  Ayuntamiento
+  Barrio Viejo
+  Biblioteca
+  Catedral
+  Cementerio
+  Centro Comercial
+  Estación Central
+  Estadio
+  Hospital
+  Instituto
+  Mercado
+  Mirador
+  Museo
+  Parque Norte
+  Piscina
+  Playa
+  Plaza Mayor
+  Polígono Industrial
+  Puerto
+  Teatro
+  Terminal de Autobuses
+  Universidad
+
+--- 2.3 Zonas por línea ---
+(6 elementos)
+  { Linea = Circular Centro, Zonas = 1 }
+  { Linea = Norte-Hospital, Zonas = 1,2 }
+  { Linea = Aeropuerto Express, Zonas = 1,2,3 }
+  { Linea = Costera, Zonas = 1,2,3 }
+  { Linea = Cinturón, Zonas = 1,2,3 }
+  { Linea = Lanzadera Estadio, Zonas = 3 }
+
+--- 2.4 Recorrido completo de todas las líneas ---
+(37 elementos)
+  { Linea = Circular Centro, Orden = 1, Parada = Estación Central }
+  { Linea = Circular Centro, Orden = 2, Parada = Plaza Mayor }
+  { Linea = Circular Centro, Orden = 3, Parada = Ayuntamiento }
+  { Linea = Circular Centro, Orden = 4, Parada = Mercado }
+  { Linea = Circular Centro, Orden = 5, Parada = Catedral }
+  { Linea = Circular Centro, Orden = 6, Parada = Biblioteca }
+  { Linea = Circular Centro, Orden = 7, Parada = Barrio Viejo }
+  { Linea = Norte-Hospital, Orden = 1, Parada = Terminal de Autobuses }
+  { Linea = Norte-Hospital, Orden = 2, Parada = Estación Central }
+  { Linea = Norte-Hospital, Orden = 3, Parada = Plaza Mayor }
+  { Linea = Norte-Hospital, Orden = 4, Parada = Universidad }
+  { Linea = Norte-Hospital, Orden = 5, Parada = Hospital }
+  { Linea = Norte-Hospital, Orden = 6, Parada = Parque Norte }
+  { Linea = Norte-Hospital, Orden = 7, Parada = Instituto }
+  { Linea = Norte-Hospital, Orden = 8, Parada = Museo }
+  { Linea = Aeropuerto Express, Orden = 1, Parada = Aeropuerto }
+  { Linea = Aeropuerto Express, Orden = 2, Parada = Terminal de Autobuses }
+  { Linea = Aeropuerto Express, Orden = 3, Parada = Estación Central }
+  { Linea = Aeropuerto Express, Orden = 4, Parada = Plaza Mayor }
+  { Linea = Aeropuerto Express, Orden = 5, Parada = Centro Comercial }
+  { Linea = Aeropuerto Express, Orden = 6, Parada = Polígono Industrial }
+  { Linea = Aeropuerto Express, Orden = 7, Parada = Estadio }
+  { Linea = Costera, Orden = 1, Parada = Playa }
+  { Linea = Costera, Orden = 2, Parada = Puerto }
+  { Linea = Costera, Orden = 3, Parada = Ayuntamiento }
+  { Linea = Costera, Orden = 4, Parada = Plaza Mayor }
+  { Linea = Costera, Orden = 5, Parada = Teatro }
+  { Linea = Costera, Orden = 6, Parada = Piscina }
+  { Linea = Costera, Orden = 7, Parada = Museo }
+  { Linea = Cinturón, Orden = 1, Parada = Mirador }
+  { Linea = Cinturón, Orden = 2, Parada = Cementerio }
+  { Linea = Cinturón, Orden = 3, Parada = Parque Norte }
+  { Linea = Cinturón, Orden = 4, Parada = Centro Comercial }
+  { Linea = Cinturón, Orden = 5, Parada = Mercado }
+  { Linea = Lanzadera Estadio, Orden = 1, Parada = Mirador }
+  { Linea = Lanzadera Estadio, Orden = 2, Parada = Estadio }
+  { Linea = Lanzadera Estadio, Orden = 3, Parada = Aeropuerto }
+
+--- 2.5 Paradas compartidas por varias líneas ---
+(11 elementos)
+  { Parada = Plaza Mayor, NumLineas = 4 }
+  { Parada = Estación Central, NumLineas = 3 }
+  { Parada = Aeropuerto, NumLineas = 2 }
+  { Parada = Ayuntamiento, NumLineas = 2 }
+  { Parada = Centro Comercial, NumLineas = 2 }
+  { Parada = Estadio, NumLineas = 2 }
+  { Parada = Mercado, NumLineas = 2 }
+  { Parada = Mirador, NumLineas = 2 }
+  { Parada = Museo, NumLineas = 2 }
+  { Parada = Parque Norte, NumLineas = 2 }
+  { Parada = Terminal de Autobuses, NumLineas = 2 }
+
+=========== BLOQUE 3: COMBINACIÓN DE COLECCIONES ===========
+
+--- 3.1 Línea y vehículo ---
+(6 elementos)
+  { Linea = Circular Centro, Matricula = 1021-KLM, Capacidad = 40 }
+  { Linea = Norte-Hospital, Matricula = 2034-NPR, Capacidad = 60 }
+  { Linea = Aeropuerto Express, Matricula = 3057-RST, Capacidad = 50 }
+  { Linea = Costera, Matricula = 4082-VWX, Capacidad = 80 }
+  { Linea = Cinturón, Matricula = 5016-BCD, Capacidad = 30 }
+  { Linea = Lanzadera Estadio, Matricula = 6049-FGH, Capacidad = 25 }
+
+--- 3.2 Líneas que pasan por cada parada ---
+(25 elementos)
+  { Parada = Estación Central, Lineas = L1, L2, L3 }
+  { Parada = Plaza Mayor, Lineas = L1, L2, L3, L4 }
+  { Parada = Ayuntamiento, Lineas = L1, L4 }
+  { Parada = Mercado, Lineas = L1, L5 }
+  { Parada = Catedral, Lineas = L1 }
+  { Parada = Universidad, Lineas = L2 }
+  { Parada = Hospital, Lineas = L2 }
+  { Parada = Biblioteca, Lineas = L1 }
+  { Parada = Museo, Lineas = L2, L4 }
+  { Parada = Parque Norte, Lineas = L2, L5 }
+  { Parada = Estadio, Lineas = L3, L6 }
+  { Parada = Aeropuerto, Lineas = L3, L6 }
+  { Parada = Polígono Industrial, Lineas = L3 }
+  { Parada = Centro Comercial, Lineas = L3, L5 }
+  { Parada = Puerto, Lineas = L4 }
+  { Parada = Playa, Lineas = L4 }
+  { Parada = Instituto, Lineas = L2 }
+  { Parada = Cementerio, Lineas = L5 }
+  { Parada = Terminal de Autobuses, Lineas = L2, L3 }
+  { Parada = Teatro, Lineas = L4 }
+  { Parada = Piscina, Lineas = L4 }
+  { Parada = Mirador, Lineas = L5, L6 }
+  { Parada = Barrio Viejo, Lineas = L1 }
+  { Parada = Parque Sur, Lineas =  }
+  { Parada = Juzgados, Lineas =  }
+
+--- 3.3 Recorrido de cada línea ---
+(6 elementos)
+  { Linea = Circular Centro, Recorrido = Estación Central -> Plaza Mayor -> Ayuntamiento -> Mercado -> Catedral -> Biblioteca -> Barrio Viejo }
+  { Linea = Norte-Hospital, Recorrido = Terminal de Autobuses -> Estación Central -> Plaza Mayor -> Universidad -> Hospital -> Parque Norte -> Instituto -> Museo }
+  { Linea = Aeropuerto Express, Recorrido = Aeropuerto -> Terminal de Autobuses -> Estación Central -> Plaza Mayor -> Centro Comercial -> Polígono Industrial -> Estadio }
+  { Linea = Costera, Recorrido = Playa -> Puerto -> Ayuntamiento -> Plaza Mayor -> Teatro -> Piscina -> Museo }
+  { Linea = Cinturón, Recorrido = Mirador -> Cementerio -> Parque Norte -> Centro Comercial -> Mercado }
+  { Linea = Lanzadera Estadio, Recorrido = Mirador -> Estadio -> Aeropuerto }
+
+--- 3.4 Vehículos sin línea ---
+(1 elementos)
+  [7] 7063-JKL (capacidad 45)
+
+--- 3.5 Informe por línea ---
+(6 elementos)
+  { Linea = Circular Centro, Matricula = 1021-KLM, Capacidad = 40, NumViajes = 38 }
+  { Linea = Norte-Hospital, Matricula = 2034-NPR, Capacidad = 60, NumViajes = 28 }
+  { Linea = Aeropuerto Express, Matricula = 3057-RST, Capacidad = 50, NumViajes = 28 }
+  { Linea = Costera, Matricula = 4082-VWX, Capacidad = 80, NumViajes = 28 }
+  { Linea = Cinturón, Matricula = 5016-BCD, Capacidad = 30, NumViajes = 28 }
+  { Linea = Lanzadera Estadio, Matricula = 6049-FGH, Capacidad = 25, NumViajes = 0 }
+
+=========== BLOQUE 4: AGRUPACIÓN Y ESTADÍSTICAS ===========
+
+--- 4.1 Pasajeros totales por línea ---
+(5 elementos)
+  { Linea = Circular Centro, Total = 1284 }
+  { Linea = Aeropuerto Express, Total = 1152 }
+  { Linea = Costera, Total = 953 }
+  { Linea = Norte-Hospital, Total = 885 }
+  { Linea = Cinturón, Total = 187 }
+
+--- 4.2 Media de pasajeros por viaje ---
+(5 elementos)
+  { Linea = Circular Centro, Media = 33.8 }
+  { Linea = Norte-Hospital, Media = 31.6 }
+  { Linea = Aeropuerto Express, Media = 41.1 }
+  { Linea = Costera, Media = 34.0 }
+  { Linea = Cinturón, Media = 6.7 }
+
+--- 4.3 Parada con más líneas ---
+{ Parada = Plaza Mayor, NumLineas = 4 }
+
+--- 4.4 Pasajeros por día ---
+(7 elementos)
+  { Fecha = 2026-10-05, Pasajeros = 701 }
+  { Fecha = 2026-10-06, Pasajeros = 615 }
+  { Fecha = 2026-10-07, Pasajeros = 687 }
+  { Fecha = 2026-10-08, Pasajeros = 631 }
+  { Fecha = 2026-10-09, Pasajeros = 683 }
+  { Fecha = 2026-10-10, Pasajeros = 599 }
+  { Fecha = 2026-10-11, Pasajeros = 545 }
+
+--- 4.5 Líneas con ocupación media > 70 % ---
+(2 elementos)
+  { Linea = Circular Centro, OcupacionMedia = 84.5 }
+  { Linea = Aeropuerto Express, OcupacionMedia = 82.3 }
+
+--- 4.6 (ampliación) Vehículos infrautilizados ---
+(3 elementos)
+  { Matricula = 5016-BCD, OcupacionMedia = 22.3 }
+  { Matricula = 6049-FGH, OcupacionMedia = sin viajes }
+  { Matricula = 7063-JKL, OcupacionMedia = sin viajes }
+
+=========== BLOQUE 5: CONSULTAS AVANZADAS ===========
+
+--- 5.1a ¿Hay alguna línea sin viajes? ---
+True
+
+--- 5.1b ¿Todos los viajes respetan la capacidad del vehículo? ---
+True
+
+--- 5.2a Paradas comunes a las líneas 1 y 3 ---
+(2 elementos)
+  Estación Central
+  Plaza Mayor
+
+--- 5.2b Paradas de la línea 5 o de la 6 (sin repetir) ---
+(7 elementos)
+  Aeropuerto
+  Cementerio
+  Centro Comercial
+  Estadio
+  Mercado
+  Mirador
+  Parque Norte
+
+--- 5.3 Paradas exclusivas de la línea 5 ---
+(1 elementos)
+  Cementerio
+
+--- 5.4 Diccionario de paradas ---
+Entradas: 25
+dic[7] = [7] Hospital (zona 2)
+
+--- 5.5 Paradas con servicio ---
+Total: 23
+¿Parada 2? True
+¿Parada 24? False
+
+--- 5.6 (ampliación) Paradas sin conexión directa con la 17 ---
+(17 elementos)
+  Aeropuerto
+  Ayuntamiento
+  Barrio Viejo
+  Biblioteca
+  Catedral
+  Cementerio
+  Centro Comercial
+  Estadio
+  Juzgados
+  Mercado
+  Mirador
+  Parque Sur
+  Piscina
+  Playa
+  Polígono Industrial
+  Puerto
+  Teatro
+
+=========== RETO FINAL: PLANIFICADOR ===========
+
+--- Nivel 1: líneas directas Catedral -> Barrio Viejo ---
+(1 elementos)
+  L1 Circular Centro (vehículo 1)
+
+--- Nivel 1: líneas directas Estación Central -> Plaza Mayor ---
+(3 elementos)
+  L1 Circular Centro (vehículo 1)
+  L2 Norte-Hospital (vehículo 2)
+  L3 Aeropuerto Express (vehículo 3)
+
+--- Nivel 1: líneas directas Instituto -> Piscina ---
+(0 elementos)
+
+--- Nivel 2: tramo L2 de 19 a 17 ---
+36 min: Terminal de Autobuses -> Estación Central -> Plaza Mayor -> Universidad -> Hospital -> Parque Norte -> Instituto
+
+--- Nivel 2: tramo L2 de 17 a 19 (sentido contrario) ---
+36 min: Instituto -> Parque Norte -> Hospital -> Universidad -> Plaza Mayor -> Estación Central -> Terminal de Autobuses
+
+--- Nivel 2: tramo L3 de 12 a 11 ---
+49 min: Aeropuerto -> Terminal de Autobuses -> Estación Central -> Plaza Mayor -> Centro Comercial -> Polígono Industrial -> Estadio
+
+--- Nivel 3: un transbordo Instituto -> Piscina ---
+(2 elementos)
+  L2 -> Plaza Mayor -> L4
+  L2 -> Museo -> L4
+
+--- Nivel 3: un transbordo Playa -> Mirador ---
+(0 elementos)
+
+--- Nivel 4: menos transbordos Catedral -> Barrio Viejo ---
+0 transbordos
+  L1 Circular Centro: Catedral -> Barrio Viejo
+
+--- Nivel 4: menos transbordos Instituto -> Piscina ---
+1 transbordos
+  L2 Norte-Hospital: Instituto -> Plaza Mayor
+  L4 Costera: Plaza Mayor -> Piscina
+
+--- Nivel 4: menos transbordos Playa -> Mirador ---
+2 transbordos
+  L4 Costera: Playa -> Plaza Mayor
+  L1 Circular Centro: Plaza Mayor -> Mercado
+  L5 Cinturón: Mercado -> Mirador
+
+--- Nivel 4: menos transbordos Parque Sur -> Estación Central (parada sin servicio) ---
+Sin ruta posible
+
+--- Nivel 5 (opcional): mejor ruta por tiempo Playa -> Mirador ---
+56 minutos (con 5 min por transbordo)
+  L4 Costera: Playa -> Ayuntamiento
+  L1 Circular Centro: Ayuntamiento -> Mercado
+  L5 Cinturón: Mercado -> Mirador
+
+--- Nivel 5 (opcional): mejor ruta por tiempo Instituto -> Piscina ---
+21 minutos (con 5 min por transbordo)
+  L2 Norte-Hospital: Instituto -> Museo
+  L4 Costera: Museo -> Piscina
+
