@@ -43,30 +43,65 @@ Console.WriteLine("=========== BLOQUE 2: PROYECCIONES Y APLANAMIENTO ===========
 Console.WriteLine();
 
 // 2.1 Nombres (solo texto) de las paradas de la línea 3, en orden de recorrido.
-object? r21 = recorridos.Join(lineas.Where(l => l.Id == 3), r => r.LineaId, l => l.Id, (r, l) => r)
-                     .OrderBy(r => r.Orden)
-                     .Join(paradas, r => r.ParadaId, p => p.Id, (r, p) => p.Nombre);
+object? r21 = recorridos
+    .Where(r => r.LineaId == 3)
+    .OrderBy(r => r.Orden)
+    .Join(paradas,
+          r => r.ParadaId,
+          p => p.Id,
+          (r, p) => p.Nombre)
+    .ToList();
 Mostrar("2.1 Paradas de la línea 3", r21);
 
 // 2.2 Nombres de todas las paradas con servicio, sin repetir, en orden alfabético.
 //     Pista: resuélvelo con Distinct y, después, con DistinctBy.
-object? r22 = null;
+//object? r22 = paradas.Select(p => p.Nombre).Distinct().OrderBy(name => name).ToList();
+object? r22 = paradas.Select(p => p.Nombre).DistinctBy(name => name).OrderBy(name => name).ToList();
 Mostrar("2.2 Paradas con servicio (sin repetir)", r22);
 
 // 2.3 Para cada línea (orden por Id de línea): objeto anónimo { Linea, Zonas }
 //     donde Linea es el nombre y Zonas es un texto como "1,2,3" (zonas distintas, ordenadas).
-object? r23 = null;
+object? r23 = r23 = lineas
+    .OrderBy(l => l.Id)
+    .Select(l => new
+    {
+        Linea = l.Nombre,
+        Zonas = string.Join(",",
+            recorridos
+                .Where(r => r.LineaId == l.Id)
+                .Join(paradas, r => r.ParadaId, p => p.Id, (r, p) => p.Zona)
+                .Distinct()
+                .OrderBy(z => z))
+    });
 Mostrar("2.3 Zonas por línea", r23);
 
 // 2.4 Objetos anónimos { Linea, Orden, Parada } con todos los puntos de todos los
 //     recorridos: por línea (Id) y, dentro de cada línea, por Orden. Parada = nombre.
 //     Pista: SelectMany.
-object? r24 = null;
+object? r24 = recorridos
+    .OrderBy(r => r.LineaId)
+    .ThenBy(r => r.Orden)
+    .Join(paradas,
+          r => r.ParadaId,
+          p => p.Id,
+          (r, p) => new { Linea = r.LineaId, r.Orden, Parada = p.Nombre });
 Mostrar("2.4 Recorrido completo de todas las líneas", r24);
 
 // 2.5 Paradas que aparecen en más de una línea: objetos { Parada, NumLineas },
 //     de más a menos líneas (empate: por nombre de parada).
-object? r25 = null;
+object? r25 = paradas
+    .Select(p => new
+    {
+        Parada = p.Nombre,
+        NumLineas = recorridos
+            .Where(r => r.ParadaId == p.Id)
+            .Select(r => r.LineaId)
+            .Distinct()
+            .Count()
+    })
+    .Where(x => x.NumLineas > 1)
+    .OrderByDescending(x => x.NumLineas)
+    .ThenBy(x => x.Parada); 
 Mostrar("2.5 Paradas compartidas por varias líneas", r25);
 
 Console.WriteLine("=========== BLOQUE 3: COMBINACIÓN DE COLECCIONES ===========");
@@ -74,27 +109,69 @@ Console.WriteLine();
 
 // 3.1 Cada línea con su vehículo: { Linea, Matricula, Capacidad } (orden por Id de línea).
 //     Pista: Join.
-object? r31 = null;
+object? r31 = lineas
+    .OrderBy(l => l.Id)
+    .Join(vehiculos,
+          l => l.VehiculoId,
+          v => v.Id,
+          (l, v) => new { Linea = l.Nombre, v.Matricula, v.Capacidad });
 Mostrar("3.1 Línea y vehículo", r31);
 
 // 3.2 TODAS las paradas (también las que no tienen servicio), por Id de parada:
 //     { Parada, Lineas } con Lineas como texto "L1, L2" (ordenadas por Id de línea).
 //     Pista: GroupJoin. Con Join, las paradas sin servicio desaparecerían.
-object? r32 = null;
+object? r32 = paradas
+    .OrderBy(p => p.Id)
+    .GroupJoin(recorridos,
+               p => p.Id,
+               r => r.ParadaId,
+               (p, rs) => new
+               {
+                   Parada = p.Nombre,
+                   Lineas = string.Join(", ",
+                       rs.Select(r => r.LineaId)
+                         .Distinct()
+                         .OrderBy(id => id)
+                         .Select(id => $"L{id}"))
+               });
 Mostrar("3.2 Líneas que pasan por cada parada", r32);
 
 // 3.3 Recorrido de cada línea (orden por Id de línea): { Linea, Recorrido }
 //     con Recorrido = "Parada A -> Parada B -> Parada C" (orden de recorrido).
-object? r33 = null;
+object? r33 = lineas
+    .OrderBy(l => l.Id)
+    .Select(l => new
+    {
+        Linea = l.Nombre,
+        Recorrido = string.Join(" -> ",
+            recorridos
+                .Where(r => r.LineaId == l.Id)
+                .OrderBy(r => r.Orden)
+                .Join(paradas, r => r.ParadaId, p => p.Id, (r, p) => p.Nombre))
+    });
 Mostrar("3.3 Recorrido de cada línea", r33);
 
 // 3.4 Vehículos que no tienen ninguna línea asignada (los objetos Vehiculo completos).
-object? r34 = null;
+object? r34 = vehiculos.Where(v => !lineas.Any(l => l.VehiculoId == v.Id));
 Mostrar("3.4 Vehículos sin línea", r34);
 
 // 3.5 Informe de TODAS las líneas (orden por Id): { Linea, Matricula, Capacidad, NumViajes }.
 //     Las líneas sin viajes deben salir con NumViajes = 0.
-object? r35 = null;
+object? r35 = lineas
+    .OrderBy(l => l.Id)
+    .Select(l => new
+    {
+        Linea = l.Nombre,
+        Vehiculo = vehiculos.FirstOrDefault(v => v.Id == l.VehiculoId),
+        NumViajes = viajes.Count(v => v.LineaId == l.Id)
+    })
+    .Select(x => new
+    {
+        x.Linea,
+        Matricula = x.Vehiculo?.Matricula,
+        Capacidad = x.Vehiculo?.Capacidad ?? 0,
+        x.NumViajes
+    });
 Mostrar("3.5 Informe por línea", r35);
 
 Console.WriteLine("=========== BLOQUE 4: AGRUPACIÓN Y ESTADÍSTICAS ===========");
